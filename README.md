@@ -4,3 +4,5 @@
     Instalación de complementos base
 - UNIDAD 2
     Introducción a TypeScript
+    Instalación de Nest.js
+    Uso de import y export. Tipos de datos
