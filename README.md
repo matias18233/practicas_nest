@@ -6,3 +6,6 @@
     Introducción a TypeScript
     Instalación de Nest.js
     Uso de import y export. Tipos de datos
+    Arreglos: push y join
+    Interfaces
+    Clases
