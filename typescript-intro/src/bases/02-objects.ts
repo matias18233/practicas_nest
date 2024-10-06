@@ -7,12 +7,23 @@ console.log(pokemonIds);
 interface Pokemon {
     id: number,
     name: string,
-    age?: number
+    age: number
 }
 
-export const Bulbasaur:Pokemon = {
+export const bulbasaur:Pokemon = {
     id: 1,
     name: 'Bulbasaur',
+    age: 2
 }
 
-console.log(Bulbasaur);
+export const charmander:Pokemon = {
+    id: 4,
+    name: 'Charmander',
+    age: 1
+}
+
+export const pokemons: Pokemon[] = [];
+pokemons.push(charmander);
+pokemons.push(bulbasaur);
+
+console.log(pokemons);
