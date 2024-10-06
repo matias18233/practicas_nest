@@ -9,3 +9,5 @@
     Arreglos: push y join
     Interfaces
     Clases
+    Getters
+    Métodos
