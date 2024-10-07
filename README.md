@@ -11,3 +11,4 @@
     Clases
     Getters
     Métodos
+    Comunicación asíncrona

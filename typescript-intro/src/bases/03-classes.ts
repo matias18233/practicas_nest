@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export class Pokemon {
 
     get imageUrl(): string {
@@ -19,9 +21,17 @@ export class Pokemon {
     public speak() {
         console.log(`${ this.name }, ${ this.name }`);
     }
+
+    public async getMoves() {
+        const respuesta = await axios.get('https://pokeapi.co/api/v2/pokemon/4');
+
+        return respuesta.data;
+    }
 }
 
 export const charmander = new Pokemon( 4, 'Charmander' );
 
 charmander.scream();
 charmander.speak();
+
+console.log(charmander.getMoves());
