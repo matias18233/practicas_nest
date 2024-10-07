@@ -12,3 +12,4 @@
     Getters
     Métodos
     Comunicación asíncrona
+    Inyección de dependencias
