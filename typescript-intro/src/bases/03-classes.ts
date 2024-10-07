@@ -23,9 +23,9 @@ export class Pokemon {
     }
 
     public async getMoves() {
-        const respuesta = await axios.get('https://pokeapi.co/api/v2/pokemon/4');
+        const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/4');
 
-        return respuesta.data;
+        return data.moves;
     }
 }
 
