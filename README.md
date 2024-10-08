@@ -13,3 +13,4 @@
     Métodos
     Comunicación asíncrona
     Inyección de dependencias
+    Principio de sustitución de Liskov

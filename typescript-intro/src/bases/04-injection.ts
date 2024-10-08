@@ -1,6 +1,5 @@
-import { PokeApiAdapter } from '../api/pokeApi.adapter.ts';
+import { HttpAdapter, PokeApiAdapter, PokeApiFetchAdapter } from '../api/pokeApi.adapter.ts';
 import { Move, PokeapiResponse } from '../interfaces/pokeapi-response.interface.ts';
-import { Move } from '../interfaces/pokeapi-response.interface';
 
 export class Pokemon {
 
@@ -12,7 +11,7 @@ export class Pokemon {
         public readonly id: number, 
         public name: string,
         // Todo: inyectar dependencias
-        private readonly http: PokeApiAdapter
+        private readonly http: HttpAdapter
     ) {}
 
     scream() {
@@ -24,7 +23,7 @@ export class Pokemon {
     }
 
     async getMoves(): Promise<Move[]> {
-        const data = await this.http.get('https://pokeapi.co/api/v2/pokemon/4');
+        const data = await this.http.get<PokeapiResponse>('https://pokeapi.co/api/v2/pokemon/4');
         console.log( data.moves );
         
         return data.moves;
@@ -32,8 +31,14 @@ export class Pokemon {
 
 }
 
-const pokeApi = new PokeApiAdapter();
+const pokeApiAxios = new PokeApiAdapter();
 
-export const charmander = new Pokemon( 4, 'Charmander', pokeApi );
+const pokeApiFech = new PokeApiFetchAdapter();
+
+export const charmander = new Pokemon( 4, 'Charmander', pokeApiAxios );
+
+export const bulbasaur = new Pokemon( 4, 'Bulbasaur', pokeApiFech );
 
 charmander.getMoves();
+
+bulbasaur.getMoves();
