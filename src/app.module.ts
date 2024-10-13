@@ -3,7 +3,7 @@ import { CarsModule } from './cars/cars.module';
 
 // El @ lo convierte en el módulo principal
 @Module({
-  imports: [CarsModule],
+  imports: [ CarsModule ],
   controllers: [],
   providers: [],
   exports: [],
