@@ -21,4 +21,12 @@ export class CarsService {
         },
     ];
 
+    findAll() {
+        return this.cars;
+    }
+
+    findOneById( id: number ) {
+        return this.cars;
+    }
+
 }
