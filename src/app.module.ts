@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { CarsModule } from './cars/cars.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PriceListModule } from './price-list/price-list.module';
 
 // El @ lo convierte en el módulo principal
 @Module({
@@ -18,6 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    PriceListModule,
   ],
   controllers: [],
   providers: [],
