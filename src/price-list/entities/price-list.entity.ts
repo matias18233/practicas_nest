@@ -18,13 +18,19 @@ export class PriceList {
     @Column('boolean')
     isDisabled: boolean;
 
-    @Column('timestamp')
+    @Column('timestamp', {
+        nullable: true
+    })
     createdAt: Timestamp;
 
-    @Column('timestamp')
+    @Column('timestamp', {
+        nullable: true
+    })
     updatedAt: Timestamp;
 
-    @Column('timestamp')
+    @Column('timestamp', {
+        nullable: true
+    })
     deletedAt: Timestamp;
 
 }
