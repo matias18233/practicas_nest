@@ -1,4 +1,4 @@
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
 @Entity()
 export class PriceList {
@@ -37,7 +37,12 @@ export class PriceList {
     deletedAt: Date;
 
     @BeforeInsert()
-    updateCreatedAt() {
+    checkCreatedAt() {
         this.createdAt = new Date(Math.floor(Date.now() / 1000) * 1000);
+    }
+
+    @BeforeUpdate()
+    checkUpdatedAt() {
+
     }
 }

@@ -28,7 +28,7 @@ export class PriceListService {
 
   async findAll() {
     try {
-      const priceList = await this.priceListRepository.find();
+      const priceList = await this.priceListRepository.find({});
 
       return priceList;
     } catch (error) {
@@ -36,16 +36,26 @@ export class PriceListService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} priceList`;
+  async findOne(id: number) {
+    try {
+      const priceList = await this.priceListRepository.findOneBy({ id });
+
+      return priceList;
+    } catch (error) {
+      this.handleExceptions(error);
+    }
   }
 
   update(id: number, updatePriceListDto: UpdatePriceListDto) {
     return `This action updates a #${id} priceList`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} priceList`;
+  async remove(id: number) {
+    try {
+      await this.priceListRepository.delete({ id });
+    } catch (error) {
+      this.handleExceptions(error);
+    }
   }
   
   private handleExceptions( error: any ) {
