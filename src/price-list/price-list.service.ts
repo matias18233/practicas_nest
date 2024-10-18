@@ -26,8 +26,14 @@ export class PriceListService {
     }
   }
 
-  findAll() {
-    return `This action returns all priceList`;
+  async findAll() {
+    try {
+      const priceList = await this.priceListRepository.find();
+
+      return priceList;
+    } catch (error) {
+      this.handleExceptions(error);
+    }
   }
 
   findOne(id: number) {
