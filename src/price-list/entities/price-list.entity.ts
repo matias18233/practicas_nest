@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
 @Entity()
 export class PriceList {
@@ -18,17 +18,26 @@ export class PriceList {
     @Column('boolean')
     isDisabled: boolean;
 
-    @Column('timestamp')
-    createdAt: Timestamp;
-
-    @Column('timestamp', {
+    @Column({
+        type: 'timestamp',
         nullable: true
     })
-    updatedAt: Timestamp;
+    createdAt: Date;
 
-    @Column('timestamp', {
+    @Column({
+        type: 'timestamp',
         nullable: true
     })
-    deletedAt: Timestamp;
+    updatedAt: Date;
 
+    @Column({
+        type: 'timestamp',
+        nullable: true
+    })
+    deletedAt: Date;
+
+    @BeforeInsert()
+    updateCreatedAt() {
+        this.createdAt = new Date(Math.floor(Date.now() / 1000) * 1000);
+    }
 }
