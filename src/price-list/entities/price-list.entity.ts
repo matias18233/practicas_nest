@@ -18,9 +18,7 @@ export class PriceList {
     @Column('boolean')
     isDisabled: boolean;
 
-    @Column('timestamp', {
-        nullable: true
-    })
+    @Column('timestamp')
     createdAt: Timestamp;
 
     @Column('timestamp', {
